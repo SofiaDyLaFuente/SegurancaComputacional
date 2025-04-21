@@ -66,8 +66,6 @@ def encriptacao(chave):
     cipherText = ''.join(listaCriptografado)
     print(f"Seu texto cifrado é \n{cipherText} \n")
 
-    return cipherText
-
 # Função de decriptação
 def Decriptacao(chave, cipherText):
     # Decriptar é o mesmo que encriptar, só que a chave é negativa
@@ -110,7 +108,7 @@ def main():
         chave = int(input("Digite a chave k de 0 a 25: ")) % 26    # Caso o usuário digite um número maior que 25, o módulo 26 garante que a chave fique entre 0 e 25.
 
     if opcao == 1:
-        cipherText = encriptacao(chave)
+        encriptacao(chave)
         main()
 
     elif opcao == 2:
