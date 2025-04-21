@@ -4,13 +4,34 @@ from collections import Counter
 # Função de ataque por distribuição de frequência
 def frequencia(cipherText):
 
-    #Percentagens de frequência dos caracteres em Português.
+    #Percentagens de frequência dos caracteres (a-z) em Português.
+    # https://www.dcc.fc.up.pt/~rvr/naulas/tabelasPT/
     frequencias = {
         13.9, 1.0, 4.4, 5.4, 12.2, 1.0,
         1.2, 0.8, 6.9, 0.4, 0.1, 2.8, 4.2, 
         5.3, 10.8, 2.9, 0.9, 6.9, 7.9, 
         4.9, 4.0, 1.3, 0.0, 0.3, 0.0, 0.4,
     }
+
+    contagem = Counter(i.lower() for i in cipherText if i.isalpha())
+    
+    # Pega a letra mais comum
+    letraFrequente, _ = contagem.most_common(1)[0]
+    charAscii = ord(letraFrequente.lower())
+    chave = charAscii - 97
+    
+    # Faz a primeira tentativa com a letra mais freqeunte do português = A
+    print(f'Letra mais frequente do texto cifrado: {letraFrequente}')
+    print(f'Possível chave: {chave} \n')
+    Decriptacao(chave, cipherText)
+
+    # Caso não tenha dado certo faz uma segunda tentativa com a segunda letra mais frequente = E
+    letraFrequente2, _ = contagem.most_common(2)[1]
+    charAscii2 = ord(letraFrequente2.lower())
+    chave2 = charAscii2 - 97
+    print(f'Segunda letra mais frequente do texto cifrado: {letraFrequente2}')
+    print(f'Possível chave: {chave2} \n')
+    Decriptacao(chave2, cipherText)
 
 
 # Função de ataque de força bruta
@@ -34,7 +55,7 @@ def forcaBruta(cipherText):
                 
             listaDecriptografado.append(chr(charAscii))
         
-        print(f"Possível texto cifrado com chave {chave}:\n{''.join(listaDecriptografado)}")
+        print(f"Possível texto cifrado com chave {chave}:\n{''.join(listaDecriptografado)} \n")
 
 
 # Função de encriptação
