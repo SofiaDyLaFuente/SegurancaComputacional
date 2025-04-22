@@ -1,5 +1,6 @@
 from unidecode import unidecode
 from collections import Counter
+import time
 
 # Função de ataque por distribuição de frequência
 def frequencia(cipherText):
@@ -139,13 +140,17 @@ def main():
         main()
 
     elif opcao == 3:
+        start = time.time()
         cipherText = unidecode(input("Digite o texto cifrado: "))
         forcaBruta(cipherText)
+        print(f"Tempo: {(time.time()-start)*1000:.2f}ms")
         main()
     
     elif opcao == 4:
+        start = time.time()
         cipherText = unidecode(input("Digite o texto cifrado: "))
         frequencia(cipherText)
+        print(f"Tempo: {(time.time()-start)*1000:.2f}ms")
         main()
     
     elif opcao == 5:
