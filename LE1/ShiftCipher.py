@@ -7,11 +7,12 @@ def frequencia(cipherText):
     #Percentagens de frequência dos caracteres (a-z) em Português.
     # https://www.dcc.fc.up.pt/~rvr/naulas/tabelasPT/
     frequencias = {
-        13.9, 1.0, 4.4, 5.4, 12.2, 1.0,
-        1.2, 0.8, 6.9, 0.4, 0.1, 2.8, 4.2, 
-        5.3, 10.8, 2.9, 0.9, 6.9, 7.9, 
-        4.9, 4.0, 1.3, 0.0, 0.3, 0.0, 0.4,
-    }
+        'a': 13.9, 'b': 1.0, 'c': 4.4, 'd': 5.4, 'e': 12.2, 'f': 1.0,
+        'g': 1.2, 'h': 0.8, 'i': 6.9, 'j': 0.4, 'k': 0.1, 'l': 2.8,
+        'm': 4.2, 'n': 5.3, 'o': 10.8, 'p': 2.9, 'q': 0.9, 'r': 6.9,
+        's': 7.9, 't': 4.9, 'u': 4.0, 'v': 1.3, 'w': 0.0, 'x': 0.3,
+        'y': 0.0, 'z': 0.4,
+    } # Letras mais frequentes: A (13.9) e E (12.2)
 
     contagem = Counter(i.lower() for i in cipherText if i.isalpha())
     
